@@ -1,0 +1,93 @@
+.home-container {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 10%,
+    rgba(0, 0, 0, 0.3) 60%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+.content-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  max-width: 90%;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.brand-glow {
+  color: #f3c623;
+  text-shadow: 0 0 10px rgba(255, 193, 7, 0.9), 0 0 20px rgba(255, 193, 7, 0.7);
+}
+
+.animate-title {
+  animation: fadeInDown 1s ease-in-out both;
+}
+
+.animate-sub {
+  animation: fadeInUp 1.2s ease-in-out both;
+}
+
+.animate-btn {
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 2s ease-in-out both;
+}
+
+.animate-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #ffc107, 0 0 25px #ffc107aa;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}
