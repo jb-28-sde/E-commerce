@@ -1,27 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './Home.css';
 
 export default function Home() {
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((data) => setSlides(data.products.slice(3, 15)))
+      .catch((err) => console.error("Error:", err));
+  }, []);
+
   return (
     <div className="position-relative overflow-hidden">
-      <video
-        className="w-100 object-fit-cover"
-        style={{ height: "100vh", objectFit: "cover" }}
-        loop
-        muted
-        autoPlay
-        playsInline
-        src="https://videocdn.cdnpk.net/videos/bd924df5-61af-47a0-9efc-211a0b63ce9f/horizontal/previews/clear/large.mp4?token=exp=1753441837~hmac=3f3b448f60e83b0d29f8029c60afab7adab9ea064cc56f72437301d53fbb38de"
-      ></video>
+      <div
+        id="heroCarousel"
+        className="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+        data-bs-interval="1000"
+        data-bs-pause="false"
+      >
+        <div className="carousel-inner" style={{ height: "100vh" }}>
+          {slides.map((item, index) => (
+            <div
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+              key={item.id}
+            >
+              <img
+                src={item.thumbnail}
+                className="d-block w-100"
+                alt={item.title}
+                style={{ height: "100vh", objectFit: "contain" }}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div
         className="position-absolute top-50 start-50 translate-middle text-center text-white p-4"
-        style={{
-          zIndex: 2,
-          backgroundColor: "rgba(0, 0, 0, 0.0)",
-          borderRadius: "20px",
-        }}
+        style={{ zIndex: 2 }}
       >
         <h1
           className="fw-bold mb-4"
@@ -29,13 +47,11 @@ export default function Home() {
             fontSize: "3rem",
             color: "#f8f9fa",
             textShadow: "2px 2px 6px rgba(0,0,0,0.7)",
-            letterSpacing: "1px",
-            lineHeight: "1.2",
           }}
         >
           Welcome to <span style={{ color: "#a1c9c3" }}>Bhartiya Mart</span>
         </h1>
-        <Link to={"/product"}>
+        <Link to="/product">
           <button className="btn btn-warning btn-lg px-4 py-2 rounded-pill fw-semibold shadow">
             Shop Now
           </button>

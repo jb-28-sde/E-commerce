@@ -66,7 +66,7 @@ export default function Navbar() {
 
           <form className="d-flex align-items-center gap-2 me-3" role="search">
             <input
-              className="form-control form-control-sm me-2"
+              className="form-control form-control-sm me-1"
               type="search"
               placeholder="Search"
               aria-label="Search"
