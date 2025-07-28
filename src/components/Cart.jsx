@@ -82,7 +82,7 @@ function Cart() {
                       <td className="fw-semibold text-start">{item.title}</td>
                       <td className="text-success fw-medium">
                         <FaRupeeSign className="me-1" />
-                        {item.price}
+                        {Math.floor(item.price)}
                       </td>
                       <td>
                         <input
@@ -92,13 +92,13 @@ function Cart() {
                           onChange={(e) =>
                             handleQuantityChange(item.id, e.target.value)
                           }
-                          className="form-control form-control-sm text-center"
+                          className="form-control form-control-sm text-center text-primary fw-bold"
                           style={{ width: "60px", margin: "0 auto" }}
                         />
                       </td>
                       <td>
-                        <FaRupeeSign className="me-1" />
-                        {quantities[item.id] * item.price}
+                        <FaRupeeSign className="me-1 text-success" />
+                        {Math.floor(quantities[item.id] * item.price)}
                       </td>
                       <td>
                         <button

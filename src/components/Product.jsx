@@ -127,7 +127,7 @@ export default function Product() {
 
                       <div className="mb-2">
                         <span className="fw-bold text-success fs-5">
-                          ₹{item.price}
+                          ₹{Math.floor(item.price)}
                         </span>
                         <span className="ms-2 text-danger small">
                           ({Math.round(item.discountPercentage)}% OFF)

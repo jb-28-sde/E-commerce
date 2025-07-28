@@ -17,7 +17,7 @@ export default function Home() {
         id="heroCarousel"
         className="carousel slide carousel-fade"
         data-bs-ride="carousel"
-        data-bs-interval="1000"
+        data-bs-interval="2000"
         data-bs-pause="false"
       >
         <div className="carousel-inner" style={{ height: "100vh" }}>
